@@ -1,0 +1,12 @@
+additional_options=--compile-commands-dir\=/home/lucas/esp-ide/workspace/led-button/build
+background_index=true
+clangd_path=/home/lucas/.espressif/tools/esp-clang/esp-19.1.2_20250312/esp-clang/bin/clangd
+completion_style=detailed
+eclipse.preferences.version=1
+fill_function_arguments=true
+log_to_console=false
+pretty_print=true
+query_driver=/home/lucas/.espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/riscv32-esp-elf-gcc
+set_compilation_database=false
+use_tidy=true
+validate_clangd_options=true

@@ -1,0 +1,21 @@
+[
+  {
+    "id": -1372668369,
+    "idfLocation": "/home/lucas/esp/esp-idf",
+    "idfVersion": "5.5.1",
+    "active": true,
+    "systemGitExecutablePath": "/usr/bin/git",
+    "systemPythonExecutablePath": "/usr/bin/python3",
+    "envVars": {
+      "PATH": "/home/lucas/.espressif/tools/xtensa-esp-elf-gdb/16.2_20250324/xtensa-esp-elf-gdb/bin:/home/lucas/.espressif/tools/riscv32-esp-elf-gdb/16.2_20250324/riscv32-esp-elf-gdb/bin:/home/lucas/.espressif/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin:/home/lucas/.espressif/tools/esp-clang/esp-19.1.2_20250312/esp-clang/bin:/home/lucas/.espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin:/home/lucas/.espressif/tools/esp32ulp-elf/2.38_20240113/esp32ulp-elf/bin:/home/lucas/.espressif/tools/cmake/3.30.2/bin:/home/lucas/.espressif/tools/openocd-esp32/v0.12.0-esp32-20250707/openocd-esp32/bin:/home/lucas/.espressif/tools/ninja/1.12.1/:/home/lucas/.espressif/python_env/idf5.5_py3.13_env/bin:/home/lucas/esp/esp-idf/tools:$PATH",
+      "IDF_COMPONENT_MANAGER": "1",
+      "OPENOCD_SCRIPTS": "/home/lucas/.espressif/tools/openocd-esp32/v0.12.0-esp32-20250707/openocd-esp32/share/openocd/scripts",
+      "IDF_DEACTIVATE_FILE_PATH": "/tmp/tmprdp2smaridf_37076",
+      "IDF_MAINTAINER": "1",
+      "IDF_PATH": "/home/lucas/esp/esp-idf",
+      "IDF_PYTHON_ENV_PATH": "/home/lucas/.espressif/python_env/idf5.5_py3.13_env",
+      "ESP_IDF_VERSION": "5.5.1",
+      "ESP_ROM_ELF_DIR": "/home/lucas/.espressif/tools/esp-rom-elfs/20241011/"
+    }
+  }
+]

@@ -1,0 +1,93 @@
+# ESP-IDF build artifact
+*/build/
+*/sdkconfig
+*/sdkconfig.old
+*/.config
+*/.config.old
+
+# Component build artifacts
+components/*/build/
+
+# Bootloader build artifacts
+bootloader/
+
+# Partition table
+partitions.csv
+
+# Flash download tool files
+flash_project_args
+download.config
+
+# ESP-IDF tools
+tools/
+.espressif/
+
+# Python virtual environment
+venv/
+env/
+.venv/
+.env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Linux
+*~
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+.temp/
+
+# Certificates and keys
+*.pem
+*.key
+*.crt
+*.der
+certificates/
+keys/
+
+# Menuconfig backup
+sdkconfig.ci
+sdkconfig.defaults.*
+
+# Flash size and other board-specific configs
+flash_args
+
+# Coredumps
+*.dmp
+
+# Monitor output files
+monitor.log

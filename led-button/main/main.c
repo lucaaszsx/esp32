@@ -1,0 +1,34 @@
+#include "driver/gpio.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include <stdio.h>
+
+#define LED_PIN GPIO_NUM_2
+#define BUTTON_PIN GPIO_NUM_0
+
+void app_main(void) {
+	printf("[Button + LED Project]\n");
+
+	gpio_set_direction(LED_PIN, GPIO_MODE_OUTPUT);
+
+	gpio_set_direction(BUTTON_PIN, GPIO_MODE_INPUT);
+	gpio_set_pull_mode(BUTTON_PIN, GPIO_PULLUP_ONLY);
+
+	int last_button_state = gpio_get_level(BUTTON_PIN);
+	int led_state = 0;
+
+	while (1) {
+		int current_button_state = gpio_get_level(BUTTON_PIN);
+		printf("Button State %d\n", current_button_state);
+		if (last_button_state && !current_button_state) {
+			vTaskDelay(pdMS_TO_TICKS(50)); // debounce
+			if (!gpio_get_level(BUTTON_PIN)) {
+				led_state = !led_state;
+				gpio_set_level(LED_PIN, led_state);
+			}
+		}
+
+		last_button_state = current_button_state;
+		vTaskDelay(pdMS_TO_TICKS(10));
+	}
+}
