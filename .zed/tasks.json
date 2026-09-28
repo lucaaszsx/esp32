@@ -4,6 +4,11 @@
         "command": "\"$ZED_WORKTREE_ROOT/.venv/bin/python\" \"$ZED_WORKTREE_ROOT/scripts/create_project.py\"",
         "use_new_terminal": false
     },
+    {
+        "label": "PlatformIO: remove project",
+        "command": "\"$ZED_WORKTREE_ROOT/.venv/bin/python\" \"$ZED_WORKTREE_ROOT/scripts/remove_project.py\"",
+        "use_new_terminal": false
+    },
 
     {
         "label": "PlatformIO: generate compile commands",
