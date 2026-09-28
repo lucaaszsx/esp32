@@ -1,20 +1,50 @@
 [
+    // Projects management
     {
-        "label": "PlatformIO: create project",
+        "label": "Project: create new project",
         "command": "\"$ZED_WORKTREE_ROOT/.venv/bin/python\" \"$ZED_WORKTREE_ROOT/scripts/create_project.py\"",
         "use_new_terminal": false
     },
     {
-        "label": "PlatformIO: remove project",
+        "label": "Project: remove project",
         "command": "\"$ZED_WORKTREE_ROOT/.venv/bin/python\" \"$ZED_WORKTREE_ROOT/scripts/remove_project.py\"",
         "use_new_terminal": false
     },
 
+    // PlatformIO-specific tasks
     {
         "label": "PlatformIO: generate compile commands",
-        "command": "cd $ZED_DIRNAME && pio run --target compiledb",
+        "command": "\"$ZED_WORKTREE_ROOT/.venv/bin/python\" \"$ZED_WORKTREE_ROOT/scripts/pio.py\" \"$ZED_DIRNAME\" run --target compiledb",
         "use_new_terminal": false,
-        "hide": "on_success",
+        "hide": "never",
         "reveal": "no_focus"
     },
+    {
+        "label": "PlatformIO: compile",
+        "command": "\"$ZED_WORKTREE_ROOT/.venv/bin/python\" \"$ZED_WORKTREE_ROOT/scripts/pio.py\" \"$ZED_DIRNAME\" run --target compiledb",
+        "use_new_terminal": false,
+        "hide": "never",
+        "reveal": "no_focus"
+    },
+    {
+        "label": "PlatformIO: upload",
+        "command": "\"$ZED_WORKTREE_ROOT/.venv/bin/python\" \"$ZED_WORKTREE_ROOT/scripts/pio.py\" \"$ZED_DIRNAME\" run --target compiledb",
+        "use_new_terminal": false,
+        "hide": "never",
+        "reveal": "no_focus"
+    },
+    {
+        "label": "PlatformIO: compile/upload",
+        "command": "\"$ZED_WORKTREE_ROOT/.venv/bin/python\" \"$ZED_WORKTREE_ROOT/scripts/pio.py\" \"$ZED_DIRNAME\" run --target compiledb",
+        "use_new_terminal": false,
+        "hide": "never",
+        "reveal": "no_focus"
+    },
+    {
+        "label": "PlatformIO: serial monitor",
+        "command": "\"$ZED_WORKTREE_ROOT/.venv/bin/python\" \"$ZED_WORKTREE_ROOT/scripts/pio.py\" \"$ZED_DIRNAME\" run --target compiledb",
+        "use_new_terminal": false,
+        "hide": "never",
+        "reveal": "no_focus"
+    }
 ]
