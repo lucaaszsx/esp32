@@ -1,0 +1,15 @@
+[
+    {
+        "label": "PlatformIO: create project",
+        "command": "python3 \"$ZED_WORKTREE_ROOT/scripts/create_project.py\"",
+        "use_new_terminal": false
+    },
+
+    {
+        "label": "PlatformIO: generate compile commands",
+        "command": "cd $ZED_DIRNAME && pio run --target compiledb",
+        "use_new_terminal": false,
+        "hide": "on_success",
+        "reveal": "no_focus"
+    },
+]
