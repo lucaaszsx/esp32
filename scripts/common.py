@@ -2,7 +2,9 @@ from enum import Enum
 from os import path
 
 BASE_DIR = path.dirname(path.abspath(__file__))
-PROJECTS_FOLDER = path.abspath(path.join(BASE_DIR, '..', 'projects'))
+PROJECTS_FOLDER = path.abspath(path.join(BASE_DIR, "..", "projects"))
+COMPILEDB_SCRIPT_FILE = "compiledb_include_toolchain.py"
+COMPILEDB_SCRIPT_PATH = path.abspath(path.join(BASE_DIR, "..", "assets", COMPILEDB_SCRIPT_FILE))
 
 class Colors(Enum):
     HEADER = "\033[95m"
