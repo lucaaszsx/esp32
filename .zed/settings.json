@@ -3,10 +3,7 @@
         "clangd": {
             "binary": {
                 "path": "clangd",
-                "arguments": [
-                    "--query-driver=/home/lucas/.arduino15/packages/esp32/tools/esp-x32/**",
-                    "--background-index"
-                ]
+                "arguments": ["--query-driver=**/.platformio/packages/toolchain-*/bin/*"]
             }
         }
     },
