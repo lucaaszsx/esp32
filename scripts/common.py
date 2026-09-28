@@ -18,6 +18,3 @@ def format_msg(color, msg):
 
 def print_format(color, msg):
     print(format_msg(color, msg))
-
-def question(msg):
-    return input(format_msg(Colors.BLUE, f"→ {msg}: "))

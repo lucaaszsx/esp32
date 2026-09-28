@@ -1,7 +1,7 @@
 [
     {
         "label": "PlatformIO: create project",
-        "command": "python3 \"$ZED_WORKTREE_ROOT/scripts/create_project.py\"",
+        "command": "\"$ZED_WORKTREE_ROOT/.venv/bin/python\" \"$ZED_WORKTREE_ROOT/scripts/create_project.py\"",
         "use_new_terminal": false
     },
 

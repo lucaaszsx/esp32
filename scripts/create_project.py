@@ -3,13 +3,14 @@ import subprocess
 import sys
 from os import makedirs, path
 
-from common import PROJECTS_FOLDER, Colors, print_format, question
+from common import PROJECTS_FOLDER, Colors, print_format
+from InquirerPy.prompts.input import InputPrompt as text
 
 print_format(Colors.HEADER, "PlatformIO - Create a new project")
 
-project_name = question("Enter the name of the project")
+project_name: str = text(message="What will be the project name?").execute()
 
-if not re.fullmatch(r"[A-Za-z0-9_]+$", project_name):
+if not project_name or not re.fullmatch(r"[A-Za-z0-9_]+$", project_name):
     print_format(Colors.FAIL, "Project name must contain characters from A-Z (lower and upper case), 0-9 and underscores")
     sys.exit(1)
 
@@ -22,15 +23,13 @@ if path.exists(project_folder):
 print_format(Colors.CYAN, "Creating project")
 
 try:
-    print_format(Colors.YELLOW, "  Create project folder")
+    print_format(Colors.YELLOW, "  . Create project folder")
     makedirs(project_folder)
 
-    print_format(Colors.YELLOW, "  Run: pio project init")
+    print_format(Colors.YELLOW, "  . Run: pio project init")
+    subprocess.run(["pio", "project", "init"], cwd=project_folder, check=True)
 
-    pio_p = subprocess.run(["pio", "project", "init"], cwd=project_folder, check=True)
-
-    if pio_p.returncode == 0:
-        print()
-        print_format(Colors.GREEN, "Ok.")
-except:
-    print_format(Colors.FAIL, "Something went wrong")
+    print()
+    print_format(Colors.GREEN, "Ok.")
+except (OSError, subprocess.CalledProcessError) as e:
+    print_format(Colors.FAIL, f"Something went wrong: {e}")
