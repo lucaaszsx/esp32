@@ -21,7 +21,7 @@
     },
     {
         "label": "PlatformIO: compile",
-        "command": "\"$ZED_WORKTREE_ROOT/.venv/bin/python\" \"$ZED_WORKTREE_ROOT/scripts/pio.py\" \"$ZED_DIRNAME\" run --target compiledb",
+        "command": "\"$ZED_WORKTREE_ROOT/.venv/bin/python\" \"$ZED_WORKTREE_ROOT/scripts/pio.py\" \"$ZED_DIRNAME\" run",
         "use_new_terminal": false,
         "hide": "never",
         "reveal": "no_focus"
@@ -34,15 +34,8 @@
         "reveal": "always"
     },
     {
-        "label": "PlatformIO: compile/upload",
-        "command": "\"$ZED_WORKTREE_ROOT/.venv/bin/python\" \"$ZED_WORKTREE_ROOT/scripts/pio.py\" \"$ZED_DIRNAME\" run --target compiledb",
-        "use_new_terminal": false,
-        "hide": "never",
-        "reveal": "no_focus"
-    },
-    {
         "label": "PlatformIO: serial monitor",
-        "command": "\"$ZED_WORKTREE_ROOT/.venv/bin/python\" \"$ZED_WORKTREE_ROOT/scripts/pio.py\" \"$ZED_DIRNAME\" run --target compiledb",
+        "command": "\"$ZED_WORKTREE_ROOT/.venv/bin/python\" \"$ZED_WORKTREE_ROOT/scripts/pio.py\" \"$ZED_DIRNAME\" device monitor",
         "use_new_terminal": false,
         "hide": "never",
         "reveal": "no_focus"

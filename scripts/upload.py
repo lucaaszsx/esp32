@@ -1,10 +1,10 @@
 import sys
 
-from common import Colors, print_format
 from InquirerPy.base.control import Choice
 from InquirerPy.prompts.confirm import ConfirmPrompt as confirm
 from InquirerPy.prompts.list import ListPrompt as select
-from pio import find_project, pio_call, pio_load_conf
+from lib.common import print_log, print_success, print_warn
+from lib.pio import find_project, pio_call, pio_load_conf
 from serial.tools import list_ports
 
 
@@ -17,7 +17,7 @@ def main():
     envs = [name.removeprefix("env:") for name, _ in conf if name.startswith("env:")]
 
     if len(envs) == 0:
-        print_format(Colors.YELLOW, "No specific environment detected in config, skipping env selection")
+        print_warn("No specific environment detected in config, skipping env selection")
     else:
         env = select(message="Which environment?", choices=envs).execute()
         command += ["-e", env]
@@ -37,7 +37,7 @@ def main():
     port_choices = [Choice(value=p.device, name=f"{p.device} - {p.description}") for p in ports]
 
     if len(ports) == 0:
-        print_format(Colors.YELLOW, "No valid active ports found, PlatformIO will try to infer at upload")
+        print_warn("No valid active ports found, PlatformIO will try to infer at upload")
     else:
         upload_port = select(
             message="Which port for upload?",
@@ -56,17 +56,17 @@ def main():
         elif not use_monitor:
             command += ["--upload-port", upload_port]
 
-    print_format(Colors.BLUE, f"The following command will be executed: {" ".join(command)}")
+    print_log(f"The following command will be executed: {" ".join(command)}")
 
     proceed = confirm(message="Proceed upload?", default=True).execute()
     if not proceed:
-        print_format(Colors.YELLOW, "Aborted")
+        print_warn("Aborted")
         sys.exit(0)
 
     exit_code = pio_call(project, command)
 
     print()
-    print_format(Colors.GREEN, "Done.")
+    print_success("Done.")
 
     return exit_code
 
