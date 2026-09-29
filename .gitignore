@@ -4,14 +4,8 @@ __pycache__
 .venv/
 .ruff_cache/
 
-# PlatformIO
-.pio/
-compile_commands.json
-sdkconfig.*
-!sdkconfig.defaults
+# Cache files
+.cache
 
-# Environment
-.env*
-!.env.example
-secrets.h
-!secrets.example.h
+# Projects
+projects/
