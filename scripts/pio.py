@@ -24,27 +24,35 @@ def find_project(directory: str) -> Path:
     sys.exit(1)
 
 
-def pio_call(directory: str, args: list[str]):
-    project = find_project(directory)
+def pio_call(project: Path, args: list[str]):
     return subprocess.call(["pio", *args], cwd=project)
 
-def pio_output(directory: str, args: list[str]) -> str:
-    project = find_project(directory)
-    return subprocess.run(["pio", *args], cwd=project, stdout=subprocess.PIPE, text=True, check=True).stdout
+def pio_output(args: list[str], project: Path | None = None) -> str:
+    if project:
+        return subprocess.run(["pio", *args], cwd=project, stdout=subprocess.PIPE, text=True, check=True).stdout
+    else:
+        return subprocess.run(["pio", *args], stdout=subprocess.PIPE, text=True, check=True).stdout
 
-def pio_load_conf(directory: str):
-    project = find_project(directory)
-
+def pio_load_conf(project: Path):
     try:
-        conf = json.loads(pio_output(directory, ["project", "config", "--json-output"]))
+        conf = json.loads(pio_output(["project", "config", "--json-output"], project))
     except (OSError, subprocess.CalledProcessError, json.JSONDecodeError) as e:
         print_format(Colors.FAIL, f"Could not load project configuration from {project.name}: {e}")
         sys.exit(1)
 
     return conf
 
+def pio_load_boards():
+    try:
+        boards = json.loads(pio_output(["boards", "--json-output"]))
+    except (OSError, subprocess.CalledProcessError, json.JSONDecodeError) as e:
+        print_format(Colors.FAIL, f"Could not load boards: {e}")
+        sys.exit(1)
+
+    return boards
+
 def main():
-    sys.exit(pio_call(sys.argv[1], sys.argv[2:]))
+    sys.exit(pio_call(find_project(sys.argv[1]), sys.argv[2:]))
 
 if __name__ == "__main__":
     main()

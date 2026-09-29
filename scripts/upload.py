@@ -4,13 +4,13 @@ from common import Colors, print_format
 from InquirerPy.base.control import Choice
 from InquirerPy.prompts.confirm import ConfirmPrompt as confirm
 from InquirerPy.prompts.list import ListPrompt as select
-from pio import pio_call, pio_load_conf
+from pio import find_project, pio_call, pio_load_conf
 from serial.tools import list_ports
 
 
 def main():
-    directory = sys.argv[1]
-    conf = pio_load_conf(directory)
+    project = find_project(sys.argv[1])
+    conf = pio_load_conf(project)
 
     command = ["run", "-t", "upload"]
 
@@ -63,7 +63,7 @@ def main():
         print_format(Colors.YELLOW, "Aborted")
         sys.exit(0)
 
-    exit_code = pio_call(directory, command)
+    exit_code = pio_call(project, command)
 
     print()
     print_format(Colors.GREEN, "Done.")

@@ -1,4 +1,3 @@
-import json
 import re
 import shutil
 import subprocess
@@ -19,6 +18,7 @@ from InquirerPy.prompts.confirm import ConfirmPrompt as confirm
 from InquirerPy.prompts.fuzzy import FuzzyPrompt as fuzzy
 from InquirerPy.prompts.input import InputPrompt as text
 from InquirerPy.prompts.list import ListPrompt as select
+from pio import pio_load_boards
 
 
 def main():
@@ -38,12 +38,7 @@ def main():
 
     print_format(Colors.CYAN, "Loading boards")
 
-    try:
-        boards = json.loads(subprocess.run(["pio", "boards", "--json-output"], capture_output=True, text=True, check=True).stdout)
-    except (OSError, subprocess.CalledProcessError, json.JSONDecodeError) as e:
-        print_format(Colors.FAIL, f"Could not load the boards list: {e}")
-        sys.exit(1)
-
+    boards = pio_load_boards()
     board: dict = fuzzy(
         message="Which board will be used?",
         choices=[Choice(value=b, name=f"{b['name']} ({b['id']})") for b in boards],
