@@ -26,7 +26,7 @@ def main():
 
     project_name: str = text(message="What will be the project name?").execute()
 
-    if not project_name or not re.fullmatch(r"[A-Za-z0-9_]+$", project_name):
+    if not project_name or not re.fullmatch(r"[A-Za-z0-9_-]+$", project_name):
         print_format(Colors.FAIL, "Project name must contain characters from A-Z (lower and upper case), 0-9 and underscores")
         sys.exit(1)
 
