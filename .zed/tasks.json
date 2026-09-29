@@ -28,10 +28,10 @@
     },
     {
         "label": "PlatformIO: upload",
-        "command": "\"$ZED_WORKTREE_ROOT/.venv/bin/python\" \"$ZED_WORKTREE_ROOT/scripts/pio.py\" \"$ZED_DIRNAME\" run --target compiledb",
+        "command": "\"$ZED_WORKTREE_ROOT/.venv/bin/python\" \"$ZED_WORKTREE_ROOT/scripts/upload.py\" \"$ZED_DIRNAME\"",
         "use_new_terminal": false,
         "hide": "never",
-        "reveal": "no_focus"
+        "reveal": "always"
     },
     {
         "label": "PlatformIO: compile/upload",
