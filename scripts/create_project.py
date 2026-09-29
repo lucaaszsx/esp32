@@ -7,7 +7,9 @@ from os import makedirs, mkdir, path
 
 from common import (
     COMPILEDB_SCRIPT_FILE,
-    COMPILEDB_SCRIPT_PATH,
+    COMPILEDB_SCRIPT_TEMPLATE,
+    GITIGNORE_FILE,
+    GITIGNORE_TEMPLATE,
     PROJECTS_FOLDER,
     Colors,
     print_format,
@@ -82,8 +84,9 @@ def main():
         scripts_folder = path.join(project_folder, "scripts")
         mkdir(scripts_folder)
 
-        print_format(Colors.YELLOW, f"  . Copy {COMPILEDB_SCRIPT_PATH} to \"{project_name}\" scripts folder")
-        shutil.copyfile(COMPILEDB_SCRIPT_PATH, path.join(scripts_folder, COMPILEDB_SCRIPT_FILE))
+        print_format(Colors.YELLOW, f"  . Copy template files to \"{project_name}\" folder")
+        shutil.copyfile(COMPILEDB_SCRIPT_TEMPLATE, path.join(scripts_folder, COMPILEDB_SCRIPT_FILE))
+        shutil.copyfile(GITIGNORE_TEMPLATE, path.join(project_folder, GITIGNORE_FILE))
 
         print_format(Colors.YELLOW, f"  . Run: {' '.join(command)}")
         subprocess.run(command, cwd=project_folder, check=True)

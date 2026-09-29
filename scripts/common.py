@@ -3,9 +3,17 @@ from os import path
 
 BASE_DIR = path.dirname(path.abspath(__file__))
 PROJECTS_FOLDER = path.abspath(path.join(BASE_DIR, "..", "projects"))
-COMPILEDB_SCRIPT_FILE = "compiledb_include_toolchain.py"
-COMPILEDB_SCRIPT_PATH = path.abspath(path.join(BASE_DIR, "..", "assets", COMPILEDB_SCRIPT_FILE))
 
+# Templates
+TEMPLATES_FOLDER = path.abspath(path.join(BASE_DIR, "..", "assets", "templates"))
+
+COMPILEDB_SCRIPT_TEMPLATE = path.join(TEMPLATES_FOLDER, "compiledb_include_toolchain.template.py")
+COMPILEDB_SCRIPT_FILE = "compiledb_include_toolchain.py"
+
+GITIGNORE_TEMPLATE = path.join(TEMPLATES_FOLDER, ".gitignore.template")
+GITIGNORE_FILE = ".gitignore"
+
+# Logging
 class Colors(Enum):
     HEADER = "\033[95m"
     BLUE = "\033[94m"
