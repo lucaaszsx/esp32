@@ -1,0 +1,12 @@
+[project]
+name = "pio-zed"
+version = "0.1.0"
+readme = "README.md"
+authors = [
+    { name = "lucaaszsx", email = "jlucasmelob558@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "inquirerpy>=0.3.4",
+    "pyserial>=3.5",
+]
